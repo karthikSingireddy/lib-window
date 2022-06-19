@@ -9,9 +9,8 @@ migrate = Migrate()
 def create_app():
   app = Flask(__name__)
   app.config.from_mapping(
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'dev-key'
-    SQLALCHEMY_DATABSE_URI = os.environ.get('DATABSE_URL') or \
-      'sqlite:///' + os.path.join(app.instance_path, 'task_list.sqlite'),
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'dev-key',
+    SQLALCHEMY_DATABSE_URI = os.environ.get('DATABSE_URL') or 'sqlite:///' + os.path.join(app.instance_path, 'task_list.sqlite'),
     SQLALCHEMY_TRACK_MODIFICATIONS = False
   )
 
