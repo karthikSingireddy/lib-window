@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def first_page():
-    return render_template('first_page.html')
+    return "test response"
 
 @app.route('/response_page', methods = ['POST'])
 def response_page():
