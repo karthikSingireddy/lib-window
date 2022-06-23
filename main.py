@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request
-from flask_socketio import SocketIO, send, emit
+# from flask_socketio import SocketIO, send, emit
 
 app = Flask(__name__)
 socketio = SocketIO(app)
 
 @app.route('/')
 def first_page():
-    socketio.emit('message', "test output")
+    # socketio.emit('message', "test output")
     print('test emit')
     return "test response"
 
@@ -19,18 +19,18 @@ def first_page():
 def debug():
     return render_template('log.html')
 
-@socketio.on('message')
-def socketHandleMessage(data):
-    print('recieved from client' + data)
-@socketio.on('connect')
-def onConnect(data):
-    print('client connected')
-    print(data)
+# @socketio.on('message')
+# def socketHandleMessage(data):
+#     print('recieved from client' + data)
+# @socketio.on('connect')
+# def onConnect(data):
+#     print('client connected')
+#     print(data)
 
 
 
 if __name__ == "__main__":
         port = int(os.environ.get("PORT", 5000))
-        # app.run(host='0.0.0.0', port=port)
-        socketio.run(app)
+        app.run(host='0.0.0.0', port=port)
+        # socketio.run(app)
         #app.run()
